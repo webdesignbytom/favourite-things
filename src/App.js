@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link } from 'react-router-dom'
+
+import NavMenu from './components/NavMenu'
+import Home from './Home'
+import TopTen from './TopTen';
+import Random from './Random';
+import AddItems from './AddItems';
+
+import './styles/App.css';
 
 function App() {
+  const [items, setItems] = useState([])
+  // const [randomIndex, setRandomIndex] = useState(null)
+  
+  useEffect(()=>{
+    fetch(`http://localhost:4000/items`)
+      .then((response) => {
+        console.log('response', response)
+        return(
+          response.json()
+        )
+      })
+      .then((data) => {
+        console.log('return data', data)
+        setItems(data)
+      })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavMenu />
+
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/random' element={<Random />}/>
+          <Route path='/top10' element={<TopTen items={items}/>}/>
+          <Route path='/add' element={<AddItems />}/>
+        </Routes>
+      </main>
+      
+    </>
   );
 }
 

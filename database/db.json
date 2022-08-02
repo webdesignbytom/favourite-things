@@ -1,0 +1,47 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "itemName": "Sweets",
+      "itemImage": "http://cdn.shopify.com/s/files/1/0379/2289/8060/products/Wall-of-sweets-e1535647968627_1200x1200.jpg?v=1587046481",
+      "itemCost": "1.99",
+      "itemScoreArray": [],
+      "itemScore": 1
+    },
+    {
+      "id": 2,
+      "itemName": "Bike",
+      "itemImage": "Bike",
+      "itemCost": "1000",
+      "itemScoreArray": [],
+      "itemScore": 1
+    },
+    {
+      "itemName": "fudge",
+      "itemCost": "100",
+      "itemImageURL": "fudge.com",
+      "itemScore": 1,
+      "id": 3
+    },
+    {
+      "itemName": "cheese",
+      "itemCost": "25",
+      "itemImageURL": "http:here.com",
+      "itemScoreArray": [],
+      "itemScore": 1,
+      "id": 4
+    },
+    {
+      "itemName": "house",
+      "itemCost": "250000",
+      "itemImageURL": "home.png",
+      "itemScoreArray": [],
+      "itemScore": 1,
+      "id": 5
+    }
+  ],
+  "settings": {
+    "randomIndex": 4,
+    "lastUpdated": "2022-08-02T21:19:00.719Z"
+  }
+}
