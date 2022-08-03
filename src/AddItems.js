@@ -6,13 +6,13 @@ import VoteRig from './components/VoteRig';
 
 function AddItems(props) {
 
-  const { items, setItems } = props
+  const { items, setItems, itemScoreArray, itemScore, setItemScore } = props
 
   const [itemName, setItemName] = useState('')
   const [itemCost, setItemCost] = useState('')
   const [itemImageURL, setItemImageURL] = useState('')
-  const [itemScoreArray, setItemScoreArray] = useState([])
-  const [itemScore, setItemScore] = useState(1)
+  // const [itemScoreArray, setItemScoreArray] = useState([])
+  // const [itemScore, setItemScore] = useState(1)
   
 
   const handleChange = (event) => {
@@ -34,6 +34,7 @@ function AddItems(props) {
       itemName: itemName,
       itemCost: itemCost,
       itemImageURL: itemImageURL,
+      itemScoreArray: itemScoreArray,
       itemScore: itemScore
     }
 
@@ -60,7 +61,9 @@ function AddItems(props) {
     setItemCost('')
     setItemImageURL('')
   }
+
   let navigate = useNavigate()
+
   return (
     <>
     <main>

@@ -1,16 +1,16 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-// import data from "../database/db.json";
+import VoteRig from "./components/VoteRig";
 
 function topTen(props) {
   // const [data1, setData1] = useState(props);
-  // const { items } = props;
+  // const { items, itemScoreArray, setItemScoreArray, itemScore, setItemScore } = props;
 
   // useEffect(() => {
-  //   for (var i = 0; i < items.length; i++) {
-  //     for (var j = 0; j < items.length; j++) {
+  //   for (let i = 0; i < items.length; i++) {
+  //     for (let j = 0; j < items.length; j++) {
   //       if (items[i].vote / 1 > items[j].vote / 1) {
-  //         var temp = items[i];
+  //         let temp = items[i];
   //         items[i] = items[j];
   //         items[j] = temp;
   //       }
@@ -33,6 +33,7 @@ function topTen(props) {
           </li>
         );
       })}
+      <VoteRig itemScoreArray={itemScoreArray} setItemScoreArray={setItemScoreArray} itemScore={itemScore} setItemScore={setItemScore}itemScore={itemScore} setItemScore={setItemScore} />
     </div> */}
     </>
     

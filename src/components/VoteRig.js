@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from 'react'
 
 function VoteRig(props) {
-  const { itemScoreArray, setItemScoreArray } = props
+  const { itemScoreArray, setItemScoreArray, setItemScore } = props
   // function to handle the votes
   const [voteScore, setVoteScore] = useState(null)
 
@@ -34,7 +34,7 @@ function VoteRig(props) {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    fetch(`http://localhost:4000/items/:id/1`, {
+    fetch(`http://localhost:4000/items/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(voteScore)
@@ -52,6 +52,15 @@ function VoteRig(props) {
     });
     // setItemScoreArray(voteScore)
   };
+
+  useEffect(() => {
+    let totalScore = 0
+    for(let i = 0; i < itemScoreArray.length; i++) {
+      totalScore += itemScoreArray[i]
+    }
+    let average = totalScore / itemScoreArray.length
+    setItemScore(average)
+  }, [])
 
   return (
     <>

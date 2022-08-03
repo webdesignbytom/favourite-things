@@ -3,7 +3,8 @@ import Total from "./components/Total";
 import VoteRig from "./components/VoteRig";
 import { useState, useEffect } from "react";
 
-function Home() {
+function Home(props) {
+  const { itemScoreArray, setItemScoreArray, itemScore, setItemScore } = props
   const [item, setItem] = useState([]);
   
   useEffect(() => {
@@ -37,7 +38,7 @@ function Home() {
         </h3>
             
       </main>
-      <VoteRig />
+      <VoteRig itemScoreArray={itemScoreArray} setItemScoreArray={setItemScoreArray} itemScore={itemScore} setItemScore={setItemScore}/>
     </>
   );
 }

@@ -11,6 +11,8 @@ import './styles/App.css';
 
 function App() {
   const [items, setItems] = useState([])
+  const [itemScoreArray, setItemScoreArray] = useState([])
+  const [itemScore, setItemScore] = useState(1)
   // const [randomIndex, setRandomIndex] = useState(null)
   
   useEffect(()=>{
@@ -26,17 +28,21 @@ function App() {
         setItems(data)
       })
   }, [])
-
+  // cant change names for paths?
   return (
     <>
       <NavMenu />
 
       <main>
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/random' element={<Random />}/>
-          <Route path='/top10' element={<TopTen items={items}/>}/>
-          <Route path='/add' element={<AddItems />}/>
+          <Route path='/' element={<Home itemScoreArray={itemScoreArray} setItemScoreArray={setItemScoreArray} itemScore={itemScore} setItemScore={setItemScore}/>}/>
+
+          <Route path='/random' element={<Random itemScoreArray={itemScoreArray} setItemScoreArray={setItemScoreArray} itemScore={itemScore} setItemScore={setItemScore}/>}/>
+
+          <Route path='/top10' element={<TopTen items={items} itemScoreArray={itemScoreArray} setItemScoreArray={setItemScoreArray} itemScore={itemScore} setItemScore={setItemScore}/>}/>
+
+          <Route path='/add' element={<AddItems items={items} setItems={setItems} itemScoreArray={itemScoreArray} setItemScoreArray={setItemScoreArray} itemScore={itemScore} setItemScore={setItemScore}/>}/>
+
         </Routes>
       </main>
       

@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { Link, Routes, useSearchParams } from "react-router-dom"
+import VoteRig from "./components/VoteRig";
+
 
 function Random(props) {
-    const { item } = props
-    if(!item.contact) return "Loading..."
+    const { item, itemScoreArray, setItemScoreArray, itemScore, setItemScore } = props
+
+    if(!item) return "Loading..."
 
     return (
         <>
@@ -11,13 +14,14 @@ function Random(props) {
                 <h2>Random item</h2>
             </header>
             <p>
-                {item.firstName} {item.lastName}
+                {item.itemName} {item.itemCost}
             </p>
             <p>
                 <Link to={`/items/${item.id}`} state={item}>
                     View
                 </Link>
             </p>
+            <VoteRig itemScoreArray={itemScoreArray} setItemScoreArray={setItemScoreArray} itemScore={itemScore} setItemScore={setItemScore}/>
             <button>Next</button>
         </>
     )
